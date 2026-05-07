@@ -1,0 +1,382 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Her definerer vi variabler, som vi kan genbruge i hele CSS-filen.
+Det gør det super nemt at ændre f.eks. farver eller skrifttyper. */
+:root {
+  /*Primære farver */
+  --sort: #000; /* brødtekst og titler */
+  --koksgrå: #1a1a1a; /* tekst på mørke baggrund */
+  --lys-grå: #e5e5e5; /* sektioner, paneler */
+  --hvid: #fff; /* primær baggrund */
+
+  /* Accent farver */
+  --rød: #c62828; /* Primær knapper og links */
+  --grøn: #2e7d32; /* Hover knapper og links */
+  --max-width: 1200px;
+  --font-stack: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+}
+
+/* hele sidens indhold*/
+body {
+  font-family: var(--font-stack);
+  color: var(--sort);
+  background-color: var(--hvid);
+  line-height: 1.6;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Header og container til at centrere indholdet */
+header {
+  display: flex;
+  background: var(--lys-grå);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Sørger for, at headeren ligger ovenover alt andet indhold */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Standard sektioner */
+section {
+  margin: 4rem auto;
+  padding: 2rem;
+  max-width: var(--max-width);
+  border-left: 4px solid var(--rød);
+}
+
+/* Ensartede white-box sektioner */
+section:not(.hero):not(.banner):not(.værktøjer):not(.about):not(
+    .dokumentation-link
+  ) {
+  background: var(--hvid);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Overskrifter */
+section h1,
+section h2 {
+  border-bottom: 3px solid var(--rød);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  gap: 2rem;
+}
+
+.navigation a {
+  color: var(--sort);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.25s ease-in-out;
+}
+
+/* Hover underline */
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 3px;
+  background: var(--rød);
+  transition: width 0.25s ease-in-out;
+}
+
+.navigation a:hover {
+  color: var(--rød);
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+/* Active state */
+.navigation a.active {
+  color: var(--rød);
+  font-weight: 600;
+}
+
+.navigation a.active::after {
+  width: 100%;
+}
+
+.værktøjer {
+  margin: 4rem auto;
+  max-width: 1100px;
+  padding: 0 2rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background: var(--lys-grå);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.tool-card h3 {
+  margin-bottom: 1rem;
+}
+
+.tool-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.tool-list img {
+  width: 28px;
+  height: 28px;
+  filter: grayscale(1);
+  transition: 0.25s;
+}
+
+.tool-list img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+.logo {
+  display: flex;
+}
+
+.logo a {
+  text-decoration: none;
+  color: var(--sort);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--rød);
+  padding: 0.8rem 1.8rem;
+  border-radius: 4px;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: var(--grøn);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: var(--grøn);
+  color: var(--hvid);
+  padding: 0.8rem 1.8rem;
+  border-radius: 4px;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background: var(--rød);
+}
+
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lys-grå);
+  overflow: hidden;
+}
+
+.banner {
+  max-width: 800px;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  opacity: 0.8;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem auto 0;
+  display: block;
+}
+
+/* Skriften */
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  position: relative;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rød);
+  transition: width 0.3s;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Video sektion */
+.video {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video video {
+  width: 85%;
+  max-width: 650px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+/* Når videoen afspilles */
+.video video:fullscreen {
+  width: 100%;
+  max-width: none;
+}
+
+.video .btn-primary {
+  margin-top: 1rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* === Mobiloptimering === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .banner img {
+    max-width: 250px;
+  }
+
+  .video {
+    padding: 1.5rem 1rem;
+  }
+
+  .video video {
+    width: 90%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .navigation {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navigation a {
+    font-size: 0.95rem;
+  }
+
+  .banner img {
+    max-width: 200px;
+  }
+
+  .video video {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
