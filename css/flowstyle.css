@@ -39,6 +39,7 @@
 .flow-image {
   width: 100%;
   max-width: 900px;
+  height: auto;
   display: block;
   margin: 2rem auto;
   border-radius: 10px;
@@ -67,11 +68,11 @@ hr {
   position: relative;
 }
 
-flow-section a.btn-primary {
+.flow-section a.btn-primary {
   color: var(--hvid);
 }
 
-.flow-section a::after {
+.flow-section a:not(.btn-primary):not(.btn-secondary)::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -82,7 +83,7 @@ flow-section a.btn-primary {
   transition: width 0.3s ease;
 }
 
-.flow-section a:hover::after {
+.flow-section a:not(.btn-primary):not(.btn-secondary):hover::after {
   width: 100%;
 }
 

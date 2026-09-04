@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="da">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <header>
+    <header id="site-header">
       <div class="logo">
         <a href="index.html">Jesper Deetho Jessen</a>
       </div>
@@ -25,7 +25,6 @@
         <a href="index.html" class="active">Forside</a>
         <a href="om-mig.html">Om Mig</a>
         <a href="projekter.html">Projekter</a>
-        <a href="dokumentation.html">Dokumentation</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
     </header>
@@ -91,83 +90,20 @@
       </section>
 
       <section class="værktøjer">
-        <!-- ikoner er hentet fra ChatGPT-->
         <div class="section-header">
           <h2>Mine værktøjer</h2>
         </div>
 
-        <div class="tools-grid">
-          <article class="tool-card">
-            <h3>Design & Grafik</h3>
-            <ul class="tool-list">
-              <li>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg"
-                  alt="Photoshop ikon"
-                />
-                Adobe Photoshop
-              </li>
-              <li>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg"
-                  alt="Illustrator ikon"
-                />
-                Adobe Illustrator
-              </li>
-              <li>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg"
-                  alt="Premiere Pro ikon"
-                />
-                Adobe Premiere Pro
-              </li>
-            </ul>
-          </article>
-
-          <article class="tool-card">
-            <h3>UI/UX & Prototyping</h3>
-            <ul class="tool-list">
-              <li>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
-                  alt="Figma ikon"
-                />
-                Figma
-              </li>
-            </ul>
-          </article>
-
-          <article class="tool-card">
-            <h3>Webudvikling</h3>
-            <ul class="tool-list">
-              <li>
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                  alt="VS Code ikon"
-                />
-                HTML & CSS
-              </li>
-              <li>Java</li>
-              <li>Python</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="dokumentation-link">
-        <h2>Proces & Dokumentation</h2>
-        <p>
-          Se skitser, wireframes, mockups, designprincipper, planlægning og
-          udviklingsproces for portfolioen.
-        </p>
-        <a href="dokumentation.html" class="btn-primary"
-          >Gå til dokumentation</a
-        >
+        <div class="tools-grid" id="tools-grid"></div>
       </section>
     </main>
 
-    <footer>
+    <footer id="site-footer">
       <p>© 2025 Jesper Deetho Jessen • Multimediedesigner</p>
     </footer>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/index.js"></script>
   </body>
 </html>

@@ -17,24 +17,90 @@ Det gør det super nemt at ændre f.eks. farver eller skrifttyper. */
   /*Primære farver */
   --sort: #000; /* brødtekst og titler */
   --koksgrå: #1a1a1a; /* tekst på mørke baggrund */
-  --lys-grå: #e5e5e5; /* sektioner, paneler */
+  --lys-grå: #f4e3d2; /* sektioner, paneler */
   --hvid: #fff; /* primær baggrund */
 
   /* Accent farver */
-  --rød: #c62828; /* Primær knapper og links */
-  --grøn: #2e7d32; /* Hover knapper og links */
+  --rød: #d2691e; /* Primær knapper og links */
+  --grøn: #bf8c00; /* Hover knapper og links */
+  --blå: #8c5a3c;
+  --gul: #bf8c00;
   --max-width: 1200px;
   --font-stack: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+}
+
+:root[data-season="winter"] {
+  --lys-grå: #e5e5e5;
+  --rød: #c62828;
+  --grøn: #2e7d32;
+  --blå: #78909c;
+  --gul: #90a4ae;
+}
+
+:root[data-season="spring"] {
+  --lys-grå: #e5f1e7;
+  --rød: #4f8f6b;
+  --grøn: #6bb6a6;
+  --blå: #6bb6a6;
+  --gul: #a5d6a7;
+}
+
+:root[data-season="summer"] {
+  --lys-grå: #fff4d6;
+  --rød: #d97706;
+  --grøn: #fbc02d;
+  --blå: #e29b35;
+  --gul: #f5deb3;
 }
 
 /* hele sidens indhold*/
 body {
   font-family: var(--font-stack);
   color: var(--sort);
-  background-color: var(--hvid);
+  background-color: #fffaf5;
+  background-image:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--rød) 10%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      color-mix(in srgb, var(--blå) 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
   line-height: 1.6;
   font-size: 16px;
   scroll-behavior: smooth;
+}
+
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::before,
+main::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 42%;
+  top: 8rem;
+  z-index: -1;
+  border-radius: 6px;
+  opacity: 0.85;
+}
+
+main::before {
+  left: max(1rem, calc((100vw - var(--max-width)) / 2 - 2rem));
+  background: linear-gradient(180deg, var(--rød), var(--gul));
+  transform: rotate(7deg);
+}
+
+main::after {
+  right: max(1rem, calc((100vw - var(--max-width)) / 2 - 2rem));
+  background: linear-gradient(180deg, var(--blå), var(--grøn));
+  transform: rotate(-7deg);
 }
 
 /* Header og container til at centrere indholdet */
@@ -47,11 +113,37 @@ header {
   position: sticky;
   top: 0;
   z-index: 100; /* Sørger for, at headeren ligger ovenover alt andet indhold */
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  background: var(--rød);
+  z-index: 0;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: -45px;
+  right: 3%;
+  width: 180px;
+  height: 150px;
+  border: 2px solid color-mix(in srgb, var(--rød) 45%, transparent);
+  transform: rotate(18deg) skewX(-12deg);
+  box-shadow:
+    18px 18px 0 -2px var(--lys-grå),
+    18px 18px 0 0 color-mix(in srgb, var(--rød) 45%, transparent),
+    36px 36px 0 -2px var(--lys-grå),
+    36px 36px 0 0 color-mix(in srgb, var(--rød) 45%, transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -65,10 +157,46 @@ section {
   border-left: 4px solid var(--rød);
 }
 
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.project-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.project-filters button {
+  border: none;
+  background: var(--lys-grå);
+  color: var(--sort);
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.project-filters button:hover,
+.project-filters button.active {
+  background: var(--rød);
+  color: var(--hvid);
+}
+.card {
+  background: var(--hvid);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
 /* Ensartede white-box sektioner */
-section:not(.hero):not(.banner):not(.værktøjer):not(.about):not(
-    .dokumentation-link
-  ) {
+section:not(.hero):not(.banner):not(.værktøjer):not(.about) {
   background: var(--hvid);
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -86,6 +214,8 @@ section h2 {
 .navigation {
   display: flex;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .navigation a {
@@ -172,6 +302,8 @@ section h2 {
 
 .logo {
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 
 .logo a {
@@ -184,12 +316,16 @@ section h2 {
 .btn-primary {
   display: inline-block;
   background: var(--rød);
+  color: var(--hvid);
   padding: 0.8rem 1.8rem;
+  border: none;
   border-radius: 4px;
+  font-family: inherit;
   font-size: 18px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .btn-primary:hover {
@@ -201,11 +337,14 @@ section h2 {
   background: var(--grøn);
   color: var(--hvid);
   padding: 0.8rem 1.8rem;
+  border: none;
   border-radius: 4px;
+  font-family: inherit;
   font-size: 18px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .btn-secondary:hover {
@@ -267,7 +406,7 @@ a {
   position: relative;
 }
 
-a::after {
+a:not(.btn-primary):not(.btn-secondary):not(.figma-link)::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -278,7 +417,7 @@ a::after {
   transition: width 0.3s;
 }
 
-a:hover::after {
+a:not(.btn-primary):not(.btn-secondary):not(.figma-link):hover::after {
   width: 100%;
 }
 
@@ -318,9 +457,13 @@ a:hover::after {
 
 .card-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 1rem 0;
+  background: #f5f5f5;
+  border-radius: 8px;
 }
 
 /* === Mobiloptimering === */
@@ -331,6 +474,9 @@ a:hover::after {
 
   h2 {
     font-size: 28px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .banner img {
