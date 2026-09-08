@@ -1,79 +1,65 @@
 const projects = [
   {
     semester: 1,
-    title: "Flow 1 – Billedbehandling & Prototype",
+    title: "Cykelpartiet",
     description:
-      "Fokus på billedredigering, webdesign og opbygning af prototype.",
+      "Website i HTML og CSS for et fiktivt cykelparti. Responsivt layout, visuel identitet og første fulde site.",
+    image: "../billeder/cykelpige.png",
+    link: "cykelpartiet/",
+    available: true,
+  },
+  {
+    semester: 1,
+    title: "Kommunalvalg-kampagne",
+    description:
+      "Kampagnesite på tværs af skærme: budskab, visuelle midler og landingside.",
+    image: "../billeder/kampagneside.png",
+    link: "kommunalvalg/",
+    available: true,
+  },
+  {
+    semester: 1,
+    title: "Postkort og billedserie",
+    description:
+      "Billedbehandling, komposition og prototype til en serie trykte og digitale motiver.",
     image: "../billeder/Postcards-1.png",
     link: "flow1.html",
     available: true,
   },
   {
     semester: 1,
-    title: "Flow 2 – Byg dit første website",
-    description: "Udvikling af første fulde website i ren HTML og CSS.",
-    image: "../billeder/cykelpige.png",
-    link: "flow2.html",
-    available: true,
-  },
-  {
-    semester: 1,
-    title: "Flow 3 – Visuelt koncept",
+    title: "Cover og visuel identitet",
     description:
-      "Design af farver, typografi, identitet og grafiske elementer.",
+      "Farver, typografi og grafiske elementer samlet i ét visuelt udtryk.",
     image: "../billeder/lpcover.png",
     link: "flow3.html",
     available: true,
   },
   {
-    semester: 1,
-    title: "Flow 4 – Kampagne",
-    description: "Kampagneudvikling på tværs af digitale platforme.",
-    image: "../billeder/kampagneside.png",
-    link: "flow4.html",
+    semester: 2,
+    title: "HR-Video",
+    description:
+      "Website til professionelle ansøgningsvideoer. Frontend, struktur og brugerrejse fra idé til færdig løsning.",
+    image: "../billeder/hrvideo.png",
+    link: "https://jdjessen.com/hr-video/",
     available: true,
   },
   {
     semester: 2,
-    title: "Flow 1 – Wordpress & SEO",
-    description: "Projektet fra dette flow er ikke længere tilgængeligt.",
-    available: false,
-  },
-  {
-    semester: 2,
-    title: "Flow 2 – Design Thinking, Avanceret Figma & InDesign",
+    title: "Lyngby Connect",
     description:
-      "Design af en digital løsning til udlejning af elcykler i Lyngby. Projektet blev udviklet med fokus på Design Thinking, brugeroplevelse og interaktiv prototyping i Figma.",
+      "UX og Figma-prototype til udlejning af elcykler i Lyngby. Design thinking, flows og interaktiv prototype.",
     image: "../billeder/lyngbyconnect.png",
     link: "semester2-flow2.html",
     available: true,
   },
-
   {
     semester: 2,
-    title: "Flow 3 – Interaktiv frontend",
+    title: "Sliktårnet",
     description:
-      "Udvikling af en interaktiv slikbutik, hvor brugeren bygger sit eget Babel-tårn af slik. Projektet kombinerer HTML, CSS og JavaScript med dynamiske produkter, spil-logik, prisberegning og brugerinteraktion.",
+      "Interaktiv slikbutik i HTML, CSS og JavaScript: produkter, spil-logik, pris og brugerinteraktion.",
     image: "../billeder/tower.jpg",
     link: "semester2-flow3.html",
-    available: true,
-  },
-  {
-    semester: 2,
-    title: "Flow 4 – Oplysningskampagne",
-    description:
-      "Udvikling af en datavisualiseringsvideo baseret på research og statistiske data. Projektet kombinerer informationsdesign, storytelling, storyboard og visuel formidling.",
-    image: "../billeder/flow4-datavisualisering.png",
-    link: "semester2-flow4.html",
-    available: true,
-  },
-  {
-    semester: 2,
-    title: "Flow 5 – Eksamensprojekt",
-    description:
-      "Et samlet eksamensprojekt, hvor design, brugerforståelse og frontend-udvikling kombineres i én færdig løsning.",
-    image: "../billeder/eksamen-guide.png",
-    link: "semester2-flow5.html",
     available: true,
   },
 ];
