@@ -73,8 +73,8 @@ const projects = [
     semester: 3,
     title: "Figma til kode",
     description: "Frontend-projekt med Astro, komponenter og API-data med udgangspunkt i et Figma-design.",
-    link: "",
-    available: false,
+    link: "https://figmadesign-obli.vercel.app/",
+    available: true,
   },
   {
     semester: 3,
