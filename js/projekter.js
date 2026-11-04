@@ -62,6 +62,34 @@ const projects = [
     link: "semester2-flow3.html",
     available: true,
   },
+  {
+    semester: 3,
+    title: "Frontend Design Opgaver",
+    description: "Øvelser i moderne CSS, responsive layouts og UI-mønstre, organiseret på GitHub-branches.",
+    link: "https://github.com/boiocybur/frontend-design-opgaver",
+    available: true,
+  },
+  {
+    semester: 3,
+    title: "Figma til kode",
+    description: "Frontend-projekt med Astro, komponenter og API-data med udgangspunkt i et Figma-design.",
+    link: "https://github.com/boiocybur/figmadesign-obli",
+    available: true,
+  },
+  {
+    semester: 3,
+    title: "Frontend Framework",
+    description: "Projekt med Next.js og React med fokus på komponenter, list view og detail view.",
+    link: "https://github.com/boiocybur/frontend-framework",
+    available: true,
+  },
+  {
+    semester: 3,
+    title: "Simpel Shop",
+    description: "Gruppeprojekt: webshop bygget med Next.js, produktvisning, API-data og indkøbskurv.",
+    link: "https://github.com/DarkMatterDHH/simpel-shop",
+    available: true,
+  },
 ];
 
 projects.forEach((project) => {
@@ -78,8 +106,8 @@ projects.forEach((project) => {
     ${
       project.available
         ? `
-      <img src="${project.image}" class="card-image" alt="${project.title}" />
-      <a href="${project.link}" class="btn-secondary">Se projektet</a>
+      ${project.image ? `<img src="${project.image}" class="card-image" alt="${project.title}" />` : ""}
+      <a href="${project.link}" class="btn-secondary" ${project.link.startsWith("https://") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${project.link.startsWith("https://github.com/") ? "Se kode på GitHub" : "Se projektet"}</a>
     `
         : '<div class="project-unavailable">Projekt ikke tilgængeligt</div>'
     }
