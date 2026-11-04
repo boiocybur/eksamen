@@ -66,29 +66,29 @@ const projects = [
     semester: 3,
     title: "Frontend Design Opgaver",
     description: "Øvelser i moderne CSS, responsive layouts og UI-mønstre, organiseret på GitHub-branches.",
-    link: "https://github.com/boiocybur/frontend-design-opgaver",
-    available: true,
+    link: "",
+    available: false,
   },
   {
     semester: 3,
     title: "Figma til kode",
     description: "Frontend-projekt med Astro, komponenter og API-data med udgangspunkt i et Figma-design.",
-    link: "https://github.com/boiocybur/figmadesign-obli",
-    available: true,
+    link: "",
+    available: false,
   },
   {
     semester: 3,
     title: "Frontend Framework",
     description: "Projekt med Next.js og React med fokus på komponenter, list view og detail view.",
-    link: "https://github.com/boiocybur/frontend-framework",
+    link: "https://family-friends-psi.vercel.app/",
     available: true,
   },
   {
     semester: 3,
     title: "Simpel Shop",
     description: "Gruppeprojekt: webshop bygget med Next.js, produktvisning, API-data og indkøbskurv.",
-    link: "https://github.com/DarkMatterDHH/simpel-shop",
-    available: true,
+    link: "",
+    available: false,
   },
 ];
 
@@ -107,9 +107,9 @@ projects.forEach((project) => {
       project.available
         ? `
       ${project.image ? `<img src="${project.image}" class="card-image" alt="${project.title}" />` : ""}
-      <a href="${project.link}" class="btn-secondary" ${project.link.startsWith("https://") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${project.link.startsWith("https://github.com/") ? "Se kode på GitHub" : "Se projektet"}</a>
+      <a href="${project.link}" class="btn-secondary" ${project.link.startsWith("https://") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${"Se hjemmesiden"}</a>
     `
-        : '<div class="project-unavailable">Projekt ikke tilgængeligt</div>'
+        : '<div class="project-unavailable">Live-demo kommer snart</div>'
     }
   `;
 
